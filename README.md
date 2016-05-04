@@ -1,5 +1,4 @@
-# atmelstudio-fstack-usage
-Extension to Atmel Studio using the -fstack-usage parameter to GCC to analyse stack usage
+# atmelstudio-cppcheck
+Extension to Atmel Studio for running cppcheck
 
-Currently inspired by avstack.pl (http://dlbeer.co.nz/downloads/avstack.pl).
 
