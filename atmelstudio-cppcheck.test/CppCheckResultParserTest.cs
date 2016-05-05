@@ -1,6 +1,6 @@
-﻿using System.Linq;
+﻿using atmelstudio_cppcheck.Parser;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using atmelstudio_cppcheck.Parser;
+using System.Linq;
 
 namespace atmelstudio_cppcheck.test
 {

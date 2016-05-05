@@ -1,6 +1,5 @@
-﻿using System;
+﻿using atmelstudio_cppcheck.Runner;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using atmelstudio_cppcheck.Runner;
 
 namespace atmelstudio_cppcheck.test
 {
