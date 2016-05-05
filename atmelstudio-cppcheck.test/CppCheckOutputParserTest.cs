@@ -19,7 +19,7 @@ namespace atmelstudio_cppcheck.test
             parser.FileCheck += (s, e) => otherEventsCalled = true;
             parser.FileConfigurationCheck += (s, e) => otherEventsCalled = true;
 
-            parser.Progress += delegate (object sender, CppCheckOutputParser.ProgressEventArgs e)
+            parser.Progress += delegate (object sender, ProgressEventArgs e)
             {
                 Assert.AreEqual(4, e.FileNumber);
                 Assert.AreEqual(21, e.TotalFiles);
@@ -50,7 +50,7 @@ namespace atmelstudio_cppcheck.test
             parser.Progress += (s, e) => otherEventsCalled = true;
             parser.FileConfigurationCheck += (s, e) => otherEventsCalled = true;
 
-            parser.FileCheck += delegate (object sender, CppCheckOutputParser.FileCheckEventArgs e)
+            parser.FileCheck += delegate (object sender, FileCheckEventArgs e)
             {
                 Assert.AreEqual(@"hal\hpl\port\hpl_port_v100.c", e.FileName);
                 eventCalled = true;
@@ -75,7 +75,7 @@ namespace atmelstudio_cppcheck.test
 
             parser.Progress += (s, e) => otherEventsCalled = true;
             parser.FileCheck += (s, e) => otherEventsCalled = true;
-            parser.FileConfigurationCheck += delegate (object sender, CppCheckOutputParser.FileConfigurationCheckEventArgs e)
+            parser.FileConfigurationCheck += delegate (object sender, FileConfigurationCheckEventArgs e)
             {
                 Assert.AreEqual(@"hal\hpl\gclk\hpl_gclk1_v210_base.c", e.FileName);
                 Assert.AreEqual(@"CONF_GCLK_GENERATOR_6_CONFIG=1", e.Configuration);                

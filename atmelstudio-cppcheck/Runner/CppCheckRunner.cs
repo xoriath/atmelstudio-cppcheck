@@ -1,5 +1,7 @@
 ﻿
 using System.Collections.Generic;
+using System;
+using atmelstudio_cppcheck.Utilities;
 
 namespace atmelstudio_cppcheck.Runner
 {
@@ -24,5 +26,31 @@ namespace atmelstudio_cppcheck.Runner
                 "-D<define>",
                 "-U<undef>",
             };
+
+        private IServiceProvider serviceProvider;
+        private CppCheckRunner(IServiceProvider serviceProvider)
+        {
+            this.serviceProvider = serviceProvider;
+
+            InitializePlatformXml();
+        }
+
+        private Dictionary<string, string> platformXml = new Dictionary<string, string>();
+        private void InitializePlatformXml()
+        {
+            platformXml["avr8"] = ExtensionServiceHelpers.GetAssetLocation(serviceProvider, "CppCheck.Platform.AVR8");
+            platformXml["avr32"] = ExtensionServiceHelpers.GetAssetLocation(serviceProvider, "CppCheck.Platform.AVR32");
+            platformXml["arm-cm"] = ExtensionServiceHelpers.GetAssetLocation(serviceProvider, "CppCheck.Platform.ARM-CORTEX-M");
+        }
+
+        public static void Initialize(IServiceProvider serviceProvider)
+        {
+            if (instance == null)
+                instance = new CppCheckRunner(serviceProvider);
+        }
+
+        private static CppCheckRunner instance = null;
+
+        public static CppCheckRunner Instance => instance;
     }
 }
