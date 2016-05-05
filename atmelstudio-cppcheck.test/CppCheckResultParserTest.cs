@@ -5,9 +5,10 @@ using atmelstudio_cppcheck.Parser;
 namespace atmelstudio_cppcheck.test
 {
     [TestClass]
-    public class CppCheckResultParser
+    public class CppCheckResultParserTest
     {
         [TestMethod]
+        [TestCategory("result-parser")]
         public void InvalidVersionGivesNullParser()
         {
             var parser = CppCheckParserFactory.GetParser(CppCheckXmlOutput.ResultsInvalidVersion);
@@ -17,6 +18,7 @@ namespace atmelstudio_cppcheck.test
 
 
         [TestMethod]
+        [TestCategory("result-parser")]
         public void ParseVersion1Data()
         {
             var parser = CppCheckParserFactory.GetParser(CppCheckXmlOutput.ResultsVersion1);
@@ -41,6 +43,7 @@ namespace atmelstudio_cppcheck.test
         }
 
         [TestMethod]
+        [TestCategory("result-parser")]
         public void ParseVersion2Data()
         {
             var parser = CppCheckParserFactory.GetParser(CppCheckXmlOutput.ResultsVersion2);

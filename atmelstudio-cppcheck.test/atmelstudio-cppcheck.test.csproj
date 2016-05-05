@@ -46,14 +46,17 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CppCheckOutputParserTest.cs" />
     <Compile Include="CppCheckProgressOutput.cs" />
     <Compile Include="CppCheckXmlOutput.cs" />
-    <Compile Include="CppCheckResultParser.cs" />
+    <Compile Include="CppCheckResultParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
